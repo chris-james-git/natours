@@ -38,7 +38,98 @@ body {
     /* cover will always try to fit the image within the viewport */
     background-size: cover;
     background-position: top;
+    /* set position: relative to make children determine their positions relative to this */
+    position: relative;
+
     /* specify the 4 clockwise coords that lay out the visible section.
     Check out https://bennettfeely.com/clippy/ for a generator */
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+    /* positioning will be determined by parent which needs its position set to relative*/
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    /* position is absolute, so in relation to the parent */
+    top: 40%;
+    left: 50%;
+    /* transform moves the element relative to ITSELF, in this case to center the middle */
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    /* Sometimes animations show a jerky movement at the end. This is a 'fix'. */
+    backface-visibility: hidden;
+}
+
+.heading-primary-main {
+    /* By default, a span element is inline, so it would normally display like text, sequentially.
+    We use a block display style to make the element use its entire width */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* animation-timing-function adjusts the play speed of the animation.
+    See https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function for more information. */
+    animation-timing-function: ease-out;
+    /*
+    animation-delay: 3s; 
+        animation-iteration-count: 3;
+*/
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    /* We can implement an animation using the short-hand animation style */
+    animation: moveInRight 1s ease-out;
+}
+
+/* Use @keyframes to define animations */
+/* Browsers are optimised to animate opacity and transform */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
