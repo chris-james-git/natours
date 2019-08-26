@@ -9,127 +9,158 @@ Dark green: #28b485
 
 /* * is the universal selector. This is used here to apply a full reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #777;
-    /* add a border around the entire webpage */
-    padding: 30px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  /* add a border around the entire webpage */
+  padding: 30px;
 }
 
 .header {
-    /* vh lets us set a percentage of viewport height */
-    height: 95vh;
-    /* add a gradient on top of an image */
-    background-image: 
-        linear-gradient(
-            to right bottom, 
-            rgba(126, 213, 111, 0.8), 
-            rgba(40, 180, 131, 0.8)
-        ),
-        url(../img/hero.jpg);
-    /* cover will always try to fit the image within the viewport */
-    background-size: cover;
-    background-position: top;
-    /* set position: relative to make children determine their positions relative to this */
-    position: relative;
+  /* vh lets us set a percentage of viewport height */
+  height: 95vh;
+  /* add a gradient on top of an image */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 131, 0.8)
+    ),
+    url(../img/hero.jpg);
+  /* cover will always try to fit the image within the viewport */
+  background-size: cover;
+  background-position: top;
+  /* set position: relative to make children determine their positions relative to this */
+  position: relative;
 
-    /* specify the 4 clockwise coords that lay out the visible section.
+  /* specify the 4 clockwise coords that lay out the visible section.
     Check out https://bennettfeely.com/clippy/ for a generator */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
 .logo-box {
-    /* positioning will be determined by parent which needs its position set to relative*/
-    position: absolute;
-    top: 40px;
-    left: 40px;
+  /* positioning will be determined by parent which needs its position set to relative*/
+  position: absolute;
+  top: 40px;
+  left: 40px;
 }
 
 .logo {
-    height: 35px;
+  height: 35px;
 }
 
 .text-box {
-    position: absolute;
-    /* position is absolute, so in relation to the parent */
-    top: 40%;
-    left: 50%;
-    /* transform moves the element relative to ITSELF, in this case to center the middle */
-    transform: translate(-50%, -50%);
+  position: absolute;
+  /* position is absolute, so in relation to the parent */
+  top: 40%;
+  left: 50%;
+  /* transform moves the element relative to ITSELF, in this case to center the middle */
+  transform: translate(-50%, -50%);
+  /* Align text content including display: inline-block to center*/
+  text-align: center;
 }
 
 .heading-primary {
-    color: #fff;
-    text-transform: uppercase;
-    /* Sometimes animations show a jerky movement at the end. This is a 'fix'. */
-    backface-visibility: hidden;
+  color: #fff;
+  text-transform: uppercase;
+  /* Sometimes animations show a jerky movement at the end. This is a 'fix'. */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
-    /* By default, a span element is inline, so it would normally display like text, sequentially.
+  /* By default, a span element is inline, so it would normally display like text, sequentially.
     We use a block display style to make the element use its entire width */
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    /* animation-timing-function adjusts the play speed of the animation.
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  /* animation-timing-function adjusts the play speed of the animation.
     See https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function for more information. */
-    animation-timing-function: ease-out;
-    /*
+  animation-timing-function: ease-out;
+  /*
     animation-delay: 3s; 
         animation-iteration-count: 3;
 */
 }
 
 .heading-primary-sub {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
-    /* We can implement an animation using the short-hand animation style */
-    animation: moveInRight 1s ease-out;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  /* We can implement an animation using the short-hand animation style */
+  animation: moveInRight 1s ease-out;
 }
 
 /* Use @keyframes to define animations */
 /* Browsers are optimised to animate opacity and transform */
 @keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
 
-    80% {
-        transform: translateX(10px);
-    }
+  80% {
+    transform: translateX(10px);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
 
-    80% {
-        transform: translateX(-10px);
-    }
+  80% {
+    transform: translateX(-10px);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  /* transition all for simple animation on all properties */
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* X Y Blur Color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* active = click */
+.btn:active {
+  /* relative to the initial state, NOT hover */
+  transform: translateY(-1px);
+  /* Shrink the shadow on click for natural effect */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
