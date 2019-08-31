@@ -8,10 +8,23 @@ Dark green: #28b485
 */
 
 /* * is the universal selector. This is used here to apply a full reset */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit; /* Better practise for plugin support */
+}
+
+html {
+  /* Set the root font size to make life easier
+  so that 1rem = 10px for easy calculation */
+  /* We do not specify an absolute px size because
+  that would override any user agent settings. Instead
+  we specify a percentage of the user agent / browser
+  default. */
+  /* This also supports zooming */
+  font-size: 62.5%; /* 62.5% is approx 10px if user = 16px */
 }
 
 body {
@@ -21,7 +34,8 @@ body {
   line-height: 1.7;
   color: #777;
   /* add a border around the entire webpage */
-  padding: 30px;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -48,12 +62,12 @@ body {
 .logo-box {
   /* positioning will be determined by parent which needs its position set to relative*/
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -72,15 +86,16 @@ body {
   text-transform: uppercase;
   /* Sometimes animations show a jerky movement at the end. This is a 'fix'. */
   backface-visibility: hidden;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   /* By default, a span element is inline, so it would normally display like text, sequentially.
     We use a block display style to make the element use its entire width */
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
   /* animation-timing-function adjusts the play speed of the animation.
@@ -94,9 +109,9 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   /* We can implement an animation using the short-hand animation style */
   animation: moveInRight 1s ease-out;
 }
@@ -106,11 +121,11 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -122,11 +137,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -138,7 +153,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100% {
@@ -151,18 +166,19 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* transition all for simple animation on all properties */
   transition: all 0.2s;
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(-3px);
   /* X Y Blur Color */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 /* active = click */
@@ -170,7 +186,7 @@ body {
   /* relative to the initial state, NOT hover */
   transform: translateY(-1px);
   /* Shrink the shadow on click for natural effect */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -187,7 +203,7 @@ purposes */
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* relative to first parent having position: relative*/
   position: absolute;
   top: 0;
