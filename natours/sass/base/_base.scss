@@ -1,0 +1,23 @@
+/* * is the universal selector. This is used here to apply a full reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* Better practise for plugin support */
+}
+
+html {
+  /* Set the root font size to make life easier
+  so that 1rem = 10px for easy calculation */
+  /* We do not specify an absolute px size because
+  that would override any user agent settings. Instead
+  we specify a percentage of the user agent / browser
+  default. */
+  /* This also supports zooming */
+  font-size: 62.5%; /* 62.5% is approx 10px if user = 16px */
+}
+
+body {
+  box-sizing: border-box;
+}
