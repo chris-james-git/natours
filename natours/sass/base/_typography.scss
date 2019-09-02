@@ -47,15 +47,9 @@ body {
   font-size: 3.5rem;
   text-transform: uppercase;
   font-weight: 700;
-  display: inline-block;
-  // Clever trick to renter gradient text:
-  background-image: linear-gradient(
-    to right,
-    $color-primary-light,
-    $color-primary-dark
-  );
-  -webkit-background-clip: text; // Clips the background to where the text sits
-  color: transparent; // Hide the text, then the bg becomes the text, complete with gradient :)
+
+  @include gradient-text-effect;
+
   letter-spacing: 0.2rem;
   transition: all 0.2s;
 

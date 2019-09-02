@@ -5,3 +5,15 @@
     clear: both;
   }
 }
+
+// Clever trick to renter gradient text:
+@mixin gradient-text-effect {
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  -webkit-background-clip: text; // Clips the background to where the text sits
+  color: transparent; // Hide the text, then the bg becomes the text, complete with gradient :)
+}
