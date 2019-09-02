@@ -1,6 +1,5 @@
 .row {
   max-width: $grid-width; // 1140 px width is common practice
-  background-color: #eee;
   margin: 0 auto; // This is a trick to center block elements inside of another block element
 
   // :not() selects everything except the parameter
@@ -14,7 +13,6 @@
   // ^ identifies attributes that start with the string
   // * identifies attributes that contain the string
   [class^='col-'] {
-    background-color: orangered;
     float: left;
 
     &:not(:last-child) {
