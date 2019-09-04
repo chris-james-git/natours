@@ -40,15 +40,6 @@
     }
   }
 
-  &--green {
-    background-color: $color-primary;
-    color: $color-white;
-
-    &::after {
-      background-color: $color-primary;
-    }
-  }
-
   /* :: defines a pseudo-element,
   treated like a child of the main element for inheritance 
   purposes */
