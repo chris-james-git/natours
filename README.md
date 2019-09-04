@@ -1,6 +1,8 @@
 # NATOURS
 
-This is a coursework project developed in conjunction with the Udemy course "Advanced CSS and Sass" https://www.udemy.com/advanced-css-and-sass/
+This is a coursework project developed in conjunction with the Udemy course "Advanced CSS and Sass" https://www.udemy.com/advanced-css-and-sass/ written by Jonas Schmedtmann.
+
+Full course materials are available here: https://github.com/jonasschmedtmann/advanced-css-course
 
 # Three pillars of writing good HTML and CSS:
 
