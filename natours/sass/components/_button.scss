@@ -1,4 +1,5 @@
 .btn {
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -10,6 +11,10 @@
     transition: all 0.2s;
     position: relative;
     font-size: $default-font-size;
+
+    // Change for the <button> element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -24,7 +29,9 @@
   }
 
   /* active = click */
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     /* relative to the initial state, NOT hover */
     transform: translateY(-0.1rem);
     /* Shrink the shadow on click for natural effect */
@@ -54,7 +61,7 @@
   purposes */
   &::after {
     /* content must be defined, even if empty */
-    content: '';
+    content: "";
     display: inline-block;
     height: 100%;
     width: 100%;
