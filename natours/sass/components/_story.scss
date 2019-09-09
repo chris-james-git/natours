@@ -22,6 +22,7 @@
     // This is the easiest way to add space between the shape and the text:
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
+    overflow: hidden; // CJ: This is my addition to remove the flicker from the border
   }
 
   &__img {
