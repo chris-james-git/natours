@@ -46,10 +46,7 @@
   }
 
   &__list {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include absCenter;
     list-style: none;
     text-align: center;
     width: 100%;
@@ -124,7 +121,7 @@
     // they first must have their CSS 'content' property defined. This can be empty.
     &::before,
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       transition: all 0.2s;
