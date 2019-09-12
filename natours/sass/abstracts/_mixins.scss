@@ -1,6 +1,6 @@
 @mixin clearfix {
   &::after {
-    content: '';
+    content: "";
     display: table;
     clear: both;
   }
@@ -23,4 +23,50 @@
   );
   -webkit-background-clip: text; // Clips the background to where the text sits
   color: transparent; // Hide the text, then the bg becomes the text, complete with gradient :)
+}
+
+// MEDIA QUERY MANAGER
+/*
+Desktop-first approach:
+
+0 - 600px: Phone
+600 - 900px: Tablet portrait
+900 - 1200px: Tablet landscape
+1200 - 1800: is where our normal styles apply for desktop-first.
+1800px + : Big desktop
+*/
+/*
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    // rem and em in media queries are NOT affected by the root font size setting. They take their values from the browser settings.
+    // We use em, because rem sometimes don't work for media queries in some browsers.
+    @media (max-width: 37.5em) {
+      // 600px / 16
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      // 900px / 16
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      // 1200px / 16
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      // 1800 / 16
+      @content;
+    }
+  }
 }

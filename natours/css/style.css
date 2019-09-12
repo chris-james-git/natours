@@ -1,3 +1,19 @@
+/*
+Desktop-first approach:
+
+0 - 600px: Phone
+600 - 900px: Tablet portrait
+900 - 1200px: Tablet landscape
+1200 - 1800: is where our normal styles apply for desktop-first.
+1800px + : Big desktop
+*/
+/*
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
 /* Use @keyframes to define animations */
 /* Browsers are optimised to animate opacity and transform */
 @keyframes moveInLeft {
@@ -47,6 +63,15 @@ html {
   /* This also supports zooming */
   font-size: 62.5%;
   /* 62.5% is approx 10px if user = 16px */ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
@@ -653,7 +678,7 @@ body {
   .row:not(:last-child) {
     margin-bottom: 8rem; }
   .row::after {
-    content: '';
+    content: "";
     display: table;
     clear: both; }
   .row [class^='col-'] {
