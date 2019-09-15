@@ -5,6 +5,14 @@
   // :not() selects everything except the parameter
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
   }
 
   @include clearfix;
@@ -17,6 +25,16 @@
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    /* This is a standard display adjustment for smaller screens - each column gets its own row */
+    @include respond(tab-port) {
+      width: 100% !important;
     }
   }
 
