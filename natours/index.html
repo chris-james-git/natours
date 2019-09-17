@@ -405,7 +405,16 @@
 
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+        <!-- Here we use html srcset density switching to change the image density depending on
+          the screen resolution. We also use art direction to render a different image
+          depending upon a media query via the source element's media attribute. -->
+        <picture class="footer__logo">
+          <!-- The source element allows us to specify a media query attribute which we use
+            here for the art direction for small screens -->
+          <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">
+            <!-- This is an example of image density switching. 1x is for low-res screens , 2x is for high res screens-->
+          <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo">
+        </picture>
       </div>
       <div class="row">
         <div class="col-1-of-2">
