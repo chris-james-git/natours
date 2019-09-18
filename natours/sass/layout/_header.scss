@@ -7,7 +7,7 @@
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
-    url(../img/hero.jpg);
+    url(../img/hero-small.jpg);
   /* cover will always try to fit the image within the viewport */
   background-size: cover;
   background-position: top;
@@ -18,6 +18,21 @@
     Check out https://bennettfeely.com/clippy/ for a generator */
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  // We can write media queries that apply via screen resolution.
+  // 192dpi is often used as a breakpoint for high resolution.
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    /* Here we are showing a large image whenever the resolution is at least 192dpi
+    and the width is at least 600px because it doesn't make sense to render a 2000px width
+    image on a screen that can only usefully show 1200px in width. Or, using the comma,
+    we use the large image on any dpi when we have at least 2000px available.*/
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../img/hero.jpg);
+  }
 
   @include respond(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);

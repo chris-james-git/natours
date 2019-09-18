@@ -843,7 +843,7 @@ body {
   /* vh lets us set a percentage of viewport height */
   height: 95vh;
   /* add a gradient on top of an image */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   /* cover will always try to fit the image within the viewport */
   background-size: cover;
   background-position: top;
@@ -855,6 +855,13 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* We use the BEM architecture to make it easier to understand the structure:
   BEM class naming convention = block__element--modifier */ }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    .header {
+      /* Here we are showing a large image whenever the resolution is at least 192dpi
+    and the width is at least 600px because it doesn't make sense to render a 2000px width
+    image on a screen that can only usefully show 1200px in width. Or, using the comma,
+    we use the large image on any dpi when we have at least 2000px available.*/
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg); } }
   @media (max-width: 37.5em) {
     .header {
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
