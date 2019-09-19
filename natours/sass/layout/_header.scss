@@ -14,6 +14,7 @@
   /* set position: relative to make children determine their positions relative to this */
   position: relative;
 
+  // Some browsers, e.g. older versions of Firefox, don't support clip-path
   @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
     /* specify the 4 clockwise coords that lay out the visible section.
     Check out https://bennettfeely.com/clippy/ for a generator */
