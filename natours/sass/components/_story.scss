@@ -23,16 +23,23 @@
     width: 15rem;
     height: 15rem;
     float: left;
-    // Position the text around the circle:
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    // Make it look like a circle:
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
+
     // This is the easiest way to add space between the shape and the text:
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
-    overflow: hidden; // CJ: This is my addition to remove the flicker from the border
+    overflow: hidden;
+    border-radius: 50%;
+
+    // Some browsers, e.g. older versions of Firefox, don't support clip-path
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      // Make it look like a circle without using border-radius 50%:
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      // Position the text around the circle:
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);

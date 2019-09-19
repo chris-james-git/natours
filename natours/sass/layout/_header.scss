@@ -1,6 +1,6 @@
 .header {
   /* vh lets us set a percentage of viewport height */
-  height: 95vh;
+  height: 85vh;
   /* add a gradient on top of an image */
   background-image: linear-gradient(
       to right bottom,
@@ -14,14 +14,20 @@
   /* set position: relative to make children determine their positions relative to this */
   position: relative;
 
-  /* specify the 4 clockwise coords that lay out the visible section.
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    /* specify the 4 clockwise coords that lay out the visible section.
     Check out https://bennettfeely.com/clippy/ for a generator */
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
 
   // We can write media queries that apply via screen resolution.
   // 192dpi is often used as a breakpoint for high resolution.
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  // In addition, Safari has the -webkit-min-device-pixel-ratio instead of min-resolution.
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    (min-width: 125em) {
     /* Here we are showing a large image whenever the resolution is at least 192dpi
     and the width is at least 600px because it doesn't make sense to render a 2000px width
     image on a screen that can only usefully show 1200px in width. Or, using the comma,
