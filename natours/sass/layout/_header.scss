@@ -26,9 +26,9 @@
   // We can write media queries that apply via screen resolution.
   // 192dpi is often used as a breakpoint for high resolution.
   // In addition, Safari has the -webkit-min-device-pixel-ratio instead of min-resolution.
-  @media (min-resolution: 192dpi) and (min-width: 37.5em),
-    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-    (min-width: 125em) {
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
     /* Here we are showing a large image whenever the resolution is at least 192dpi
     and the width is at least 600px because it doesn't make sense to render a 2000px width
     image on a screen that can only usefully show 1200px in width. Or, using the comma,

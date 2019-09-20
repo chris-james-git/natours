@@ -189,7 +189,11 @@
   // Because this involves a large amount of new styling, we copied the
   // original .card styles and pasted the entirity into the media query
   // responder, then removed / edited it until it looked right.
-  @include respond(tab-port) {
+  // We have also added a media query for whether the hover feature is
+  // available. If not, i.e. it is a touch device, then we will also
+  // apply the following styling.
+  @media only screen and (max-width: 56.25em),
+  only screen and (hover: none) {
     height: auto;
     border-radius: 0.3rem;
     background-color: $color-white;
