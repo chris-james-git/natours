@@ -4,6 +4,10 @@ This is a coursework project developed in conjunction with the Udemy course "Adv
 
 Full course materials are available here: https://github.com/jonasschmedtmann/advanced-css-course
 
+The project uses SASS/CSS and HTML. There is no JavaScript code. The project includes showcases of various modern CSS features such as animations, clip-path, background video, image filtering, form validation, pure CSS popups, advanced media queries and an emphasis on responsive design.
+
+A live deployment of my finished project can be seen here: https://chrisjamesdev.000webhostapp.com/natours/
+
 # Three pillars of writing good HTML and CSS:
 
 ## Responsive
