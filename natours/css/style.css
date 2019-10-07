@@ -603,7 +603,8 @@ body {
         width: 90%; } }
   .popup__left {
     width: 33.333333%;
-    display: table-cell; }
+    display: table-cell;
+    overflow: hidden; }
     @media only screen and (max-width: 56.25em) {
       .popup__left {
         display: table;
@@ -628,10 +629,19 @@ body {
   .popup__img {
     display: block;
     width: 100%; }
+    @media only screen and (max-width: 81.25em) {
+      .popup__img {
+        width: 113%;
+        transform: translateX(-2rem); } }
+    @media only screen and (max-width: 68.75em) {
+      .popup__img {
+        width: 175%;
+        transform: translateX(-11rem); } }
     @media only screen and (max-width: 56.25em) {
       .popup__img {
         display: inline-block;
-        width: 50%; } }
+        width: 50%;
+        transform: translateX(0); } }
   .popup__text {
     font-size: 1.4rem;
     margin-bottom: 4rem;
