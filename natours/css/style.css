@@ -121,6 +121,9 @@ body {
       .heading-primary--main {
         letter-spacing: 1rem;
         font-family: 5rem; } }
+    @media only screen and (max-width: 25em) {
+      .heading-primary--main {
+        font-size: 5rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 2rem;
@@ -131,11 +134,15 @@ body {
     @media only screen and (max-width: 37.5em) {
       .heading-primary--sub {
         letter-spacing: 0.5rem; } }
+    @media only screen and (max-width: 25em) {
+      .heading-primary--sub {
+        font-size: 1.7rem; } }
 
 .heading-secondary {
   font-size: 3.5rem;
   text-transform: uppercase;
   font-weight: 700;
+  /* margin: 0 2rem; */
   display: inline-block;
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   -webkit-background-clip: text;
@@ -191,6 +198,10 @@ body {
 
 .u-margin-top-huge {
   margin-top: 10rem !important; }
+
+.u-padding-lr-medium {
+  padding-left: 3rem !important;
+  padding-right: 3rem !important; }
 
 .bg-video {
   position: absolute;
