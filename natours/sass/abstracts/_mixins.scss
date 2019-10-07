@@ -1,6 +1,6 @@
 @mixin clearfix {
   &::after {
-    content: '';
+    content: "";
     display: table;
     clear: both;
   }
@@ -29,7 +29,8 @@
 /*
 Desktop-first approach:
 
-0 - 600px: Phone
+0 - 400px: Phone small
+400 - 600px: Phone
 600 - 900px: Tablet portrait
 900 - 1200px: Tablet landscape
 1200 - 1800: is where our normal styles apply for desktop-first.
@@ -37,6 +38,7 @@ Desktop-first approach:
 */
 /*
 $breakpoint argument choices:
+- phone-sm
 - phone
 - tab-port
 - tab-land
@@ -45,6 +47,13 @@ $breakpoint argument choices:
 ORDER: Base + typography > general layout + grid > page layout > components
 */
 @mixin respond($breakpoint) {
+  @if $breakpoint == phone-sm {
+    @media only screen and (max-width: 25em) {
+      // 400px / 16
+      @content;
+    }
+  }
+
   @if $breakpoint == phone {
     // rem and em in media queries are NOT affected by the root font size setting. They take their values from the browser settings.
     // We use em, because rem sometimes don't work for media queries in some browsers.

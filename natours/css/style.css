@@ -1,7 +1,8 @@
 /*
 Desktop-first approach:
 
-0 - 600px: Phone
+0 - 400px: Phone small
+400 - 600px: Phone
 600 - 900px: Tablet portrait
 900 - 1200px: Tablet landscape
 1200 - 1800: is where our normal styles apply for desktop-first.
@@ -9,6 +10,7 @@ Desktop-first approach:
 */
 /*
 $breakpoint argument choices:
+- phone-sm
 - phone
 - tab-port
 - tab-land
@@ -87,7 +89,7 @@ body {
   color: #fff; }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
@@ -146,6 +148,9 @@ body {
   @media only screen and (max-width: 37.5em) {
     .heading-secondary {
       font-size: 2.5rem; } }
+  @media only screen and (max-width: 25em) {
+    .heading-secondary {
+      font-size: 2rem; } }
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
@@ -154,6 +159,9 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase; }
+  @media only screen and (max-width: 25em) {
+    .heading-tertiary {
+      font-size: 1.4rem; } }
 
 .paragraph {
   font-size: 1.6rem; }
@@ -570,58 +578,7 @@ body {
   /* Using paren display: table and child display: table-cell we can 
      easily render two boxes side-by-side that have the same height, using vertical-align: middle */
   /* The :target pseudo-class applies to the element when the current url (window.location.href)
-   has the element anchor id as target. e.g. http://www.mysite.com/#popup */
-  /*
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba($color-black, 0.9);
-  z-index: 5000;
-
-  &__content {
-    display: block;
-    @include absCenter;
-    background-color: $color-white;
-    width: 75vw;
-  }
-
-  &__images {
-    position: relative;
-    float: left;
-    width: 30vw;
-
-    &--1 {
-      height: auto;
-      width: auto;
-      max-width: 100%;
-      display: block;
-    }
-
-    &--2 {
-      height: auto;
-      width: auto;
-      max-width: 100%;
-      display: block;
-    }
-  }
-
-  &__text {
-    display: inline-block;
-    padding: 12vh 3vw;
-
-    .heading-secondary {
-      font-size: 2vw;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .heading-tertiary {
-      font-size: 1vw;
-      font-weight: 900;
-    }
-  }*/ }
+   has the element anchor id as target. e.g. http://www.mysite.com/#popup */ }
   @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
     .popup {
       -webkit-backdrop-filter: blur(10px);
@@ -641,6 +598,9 @@ body {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.25);
     transition: all 0.5s 0.2s; }
+    @media only screen and (max-width: 37.5em) {
+      .popup__content {
+        width: 90%; } }
   .popup__left {
     width: 33.333333%;
     display: table-cell; }
@@ -659,6 +619,12 @@ body {
       .popup__right {
         display: block;
         width: 100%; } }
+    @media only screen and (max-width: 37.5em) {
+      .popup__right {
+        padding: 2rem 3rem; } }
+    @media only screen and (max-width: 25em) {
+      .popup__right {
+        padding-top: 0; } }
   .popup__img {
     display: block;
     width: 100%; }
@@ -679,6 +645,13 @@ body {
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto; }
+    @media only screen and (max-width: 37.5em) {
+      .popup__text {
+        column-count: 1; } }
+    @media only screen and (max-width: 25em) {
+      .popup__text {
+        padding-top: 0;
+        margin-bottom: 2.5rem; } }
   .popup:target {
     opacity: 1;
     visibility: visible; }
@@ -697,6 +670,11 @@ body {
     line-height: 1; }
   .popup__close:hover {
     color: #55c57a; }
+  @media only screen and (max-width: 37.5em) {
+    .popup__btn {
+      display: block !important;
+      margin: auto;
+      width: fit-content; } }
 
 .story {
   width: 75%;
@@ -828,7 +806,7 @@ body {
       max-width: 50rem;
       padding: 0 3rem; } }
   .row::after {
-    content: '';
+    content: "";
     display: table;
     clear: both; }
   .row [class^='col-'] {
